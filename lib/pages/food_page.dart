@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mynew_project/components/my_button.dart';
 import 'package:mynew_project/models/food.dart';
-import 'package:mynew_project/models/restaurant.dart';
+
 class FoodPage extends StatefulWidget {
   final Food food;
   final Map<Addon, bool> SelectedAddons = {};
