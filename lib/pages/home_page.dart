@@ -50,7 +50,9 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           final food = categoryMenu[index];
           return FoodTile(
             food: food,
-            onTap: () {},
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> FoodPage(food: food),
+            ),
+            ),
           );
         },
       );

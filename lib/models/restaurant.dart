@@ -13,7 +13,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/burgers/bazinga.png",
       price: 5.99,
       category: FoodCategory.burgers,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     Food(
@@ -22,7 +26,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/burgers/big ben.png",
       price: 6.99,
       category: FoodCategory.burgers,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     Food(
@@ -31,7 +39,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/burgers/crunch.png",
       price: 4.99,
       category: FoodCategory.burgers,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     Food(
@@ -40,7 +52,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/burgers/patie.png",
       price: 3.99,
       category: FoodCategory.burgers,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     Food(
@@ -49,7 +65,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/burgers/zinger.png",
       price: 5.49,
       category: FoodCategory.burgers,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     // ================= DESSERTS =================
@@ -59,7 +79,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/deserts/gulab jamun.png",
       price: 2.99,
       category: FoodCategory.desserts,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     Food(
@@ -68,7 +92,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/deserts/jalebi.png",
       price: 2.49,
       category: FoodCategory.desserts,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     Food(
@@ -77,7 +105,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/deserts/kheer.png",
       price: 3.49,
       category: FoodCategory.desserts,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     Food(
@@ -86,7 +118,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/deserts/pngtree-bread-rasmalai-is-the-tweaked-version-of-traditional-png-image_13182378.png",
       price: 3.99,
       category: FoodCategory.desserts,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     Food(
@@ -95,7 +131,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/deserts/sohn halwa.png",
       price: 4.49,
       category: FoodCategory.desserts,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     // ================= DRINKS =================
@@ -105,7 +145,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/drinks/lassi.png",
       price: 1.99,
       category: FoodCategory.drinks,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     Food(
@@ -114,7 +158,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/drinks/lemon pani.png",
       price: 1.49,
       category: FoodCategory.drinks,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     Food(
@@ -123,7 +171,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/drinks/mint margarita.png",
       price: 2.49,
       category: FoodCategory.drinks,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     Food(
@@ -132,7 +184,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/drinks/rooh afza.png",
       price: 1.99,
       category: FoodCategory.drinks,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     // ================= SALADS =================
@@ -142,7 +198,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/salads/macroni slad.png",
       price: 2.99,
       category: FoodCategory.salads,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     Food(
@@ -151,7 +211,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/salads/russian salad.png",
       price: 3.49,
       category: FoodCategory.salads,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     Food(
@@ -160,7 +224,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/salads/salad 1.png",
       price: 2.49,
       category: FoodCategory.salads,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     // ================= SIDES =================
@@ -170,7 +238,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/sides/achar.png",
       price: 0.99,
       category: FoodCategory.sides,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     Food(
@@ -179,7 +251,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/sides/naan roti.png",
       price: 1.49,
       category: FoodCategory.sides,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     Food(
@@ -188,7 +264,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/sides/raita.png",
       price: 0.99,
       category: FoodCategory.sides,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
 
     Food(
@@ -197,7 +277,11 @@ class Restaurant extends ChangeNotifier{
       imagePath: "lib/images/sides/shami kabab.png",
       price: 2.99,
       category: FoodCategory.sides,
-      availableAddons: [],
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 0.99),
+        Addon(name: "Bacon", price: 1.99),
+        Addon(name: "Avacado", price: 2.99)
+      ],
     ),
   ];
 

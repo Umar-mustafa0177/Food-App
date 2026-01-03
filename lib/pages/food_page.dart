@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mynew_project/models/food.dart';
-
+import 'package:mynew_project/models/restaurant.dart';
 class FoodPage extends StatefulWidget {
   final Food food;
 
-  const FoodPage({
-    super.key,
-    required this.food,
+  const FoodPage(
+      {
+        super.key, required this.food,
   });
 
   @override
@@ -18,31 +18,38 @@ class _FoodPageState extends State<FoodPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // food image
+
+          //image at the top
           Image.asset(widget.food.imagePath),
 
-          // food name
+          //food name
           Text(widget.food.name),
 
-          // food description
+
+          //food description
           Text(widget.food.description),
 
-
-
-          // addons
-
+          //addons
           ListView.builder(
-            shrinkWrap: true, physics: const NeverScrollableScrollPhysics(),
-            itemCount: widget.food.availableAddons.length, itemBuilder: (context, index){
-            return CheckboxListTile(value: false, onChanged: (value){
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: widget.food.availableAddons.length,
+            itemBuilder: (context, index) {
 
-            },
+              //get individual addons
+              Addon addon = widget.food.availableAddons[index];
+              return CheckboxListTile(
+              value: false,
+              onChanged: (value) {},
             );
-          })
 
-          // button
+          },
+          )
+
+
+
+          //buttons => add to cart
         ],
       ),
     );
