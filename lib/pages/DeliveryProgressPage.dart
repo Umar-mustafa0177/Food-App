@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:mynew_project/components/my_receipt.dart';
 class Deliveryprogresspage extends StatefulWidget {
   const Deliveryprogresspage({super.key});
 
@@ -13,6 +13,12 @@ class _DeliveryprogresspageState extends State<Deliveryprogresspage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Delivery in progress"),
+        backgroundColor: Colors.transparent,
+      ),
+      body: Column(
+        children: [
+          MyReceipt(),
+        ],
       ),
     );
   }
