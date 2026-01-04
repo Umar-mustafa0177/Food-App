@@ -437,7 +437,7 @@ void clearCart(){
 
 
     receipt.writeln();
-    receipt.writeln("Delivering to: "+ deliveryAddress);
+    receipt.writeln("Delivering to: $deliveryAddress");
     return receipt.toString();
 
   }
