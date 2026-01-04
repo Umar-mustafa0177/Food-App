@@ -1,40 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../models/restaurant.dart';
 
 class MyCurrentLocation extends StatefulWidget {
   const MyCurrentLocation({super.key});
-
-  // Method to open the location search dialog
-  void openLocationSearchBox(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text("Your location"),
-        content: const TextField(
-          decoration: InputDecoration(hintText: "Search address.."),
-        ),
-        actions: [
-          //cancel Button
-          MaterialButton(onPressed: () => Navigator.pop(context),
-          child: const Text("Cancel"),
-          ),
-  
-
-          //save Button
-          MaterialButton(onPressed: () => Navigator.pop(context),
-            child: const Text("Save"),
-          ),
-
-
-        ],
-      ),
-    );
-  }
 
   @override
   State<MyCurrentLocation> createState() => _MyCurrentLocationState();
 }
 
 class _MyCurrentLocationState extends State<MyCurrentLocation> {
+  // 1. Declare the text controller
+  final TextEditingController textController = TextEditingController();
+
+  // 2. Method to open the location search dialog (Moved here to access textController)
+  void openLocationSearchBox(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: Theme.of(context).colorScheme.surface, // Matches image style
+        title: const Text("Your location"),
+        content: TextField(
+          // 3. Link the controller to the TextField
+          controller: textController,
+          decoration: const InputDecoration(hintText: "Search address.."),
+        ),
+        actions: [
+          // Cancel Button
+          MaterialButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text("Cancel"),
+          ),
+
+          // Save button
+          MaterialButton(
+            onPressed: () {
+              // update delivery address
+              String newAddress = textController.text;
+              context.read<Restaurant>().updateDeliveryAddress(newAddress);
+              Navigator.pop(context);
+              textController.clear(); // Clear for next use
+            },
+            child: const Text("Save"),
+          ), // MaterialButton
+        ],
+      ),
+    );
+  }
+
+  // 4. Clean up the controller when the widget is disposed
+  @override
+  void dispose() {
+    textController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -55,15 +75,17 @@ class _MyCurrentLocationState extends State<MyCurrentLocation> {
 
           // Address row with tap gesture
           GestureDetector(
-            onTap: () => widget.openLocationSearchBox(context), // <-- fixed here
+            onTap: () => openLocationSearchBox(context),
             child: Row(
               children: [
                 // Address
-                Text(
-                  "6901 Rawalpindi si",
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.inversePrimary,
-                    fontWeight: FontWeight.bold,
+                Consumer<Restaurant>(
+                  builder: (context, restaurant, child) => Text(
+                    restaurant.deliveryAddress,
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
 

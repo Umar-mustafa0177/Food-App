@@ -289,19 +289,31 @@ class Restaurant extends ChangeNotifier{
     ),
   ];
 
+  //user cart
+  final List<CartItem> _cart = [];
+
+  //delivery address which user can add manuauly
+  String _deliveryAddress = '99 Hopllywood b19';
+
   /*
   G E T T E R S
    */
 
   List <Food> get menu => _menu;
   List <CartItem> get cart => _cart;
+  String get deliveryAddress => _deliveryAddress;
+
+
+
+
 
 /*
   OPERATIONS
    */
 
-  //user cart
-  final List<CartItem> _cart = [];
+
+
+
 
 //add to cart
   void addtoCart(Food food, List<Addon>selectedAddons){
@@ -333,10 +345,6 @@ class Restaurant extends ChangeNotifier{
     notifyListeners();
   }
 
-//flutter pub add collection
-
-
-
 // remove from cart
   void removefromcart(CartItem cartItem) {
     int cartIndex = _cart.indexOf(cartItem);
@@ -351,7 +359,6 @@ class Restaurant extends ChangeNotifier{
 
     notifyListeners();
   }
-
 
 // get total price of cart
   double getTotalPrice() {
@@ -370,7 +377,6 @@ class Restaurant extends ChangeNotifier{
     return total;
   }
 
-//get total number of items
 // get total number of items in cart
   int getTotalItemCount() {
     int totalItemCount = 0;
@@ -382,13 +388,18 @@ class Restaurant extends ChangeNotifier{
     return totalItemCount;
   }
 
-
 //clear the cart
 void clearCart(){
     _cart.clear();
     notifyListeners();
 }
 
+
+//upadte the delviery address
+  void updateDeliveryAddress(String newAddress){
+    _deliveryAddress = newAddress;
+    notifyListeners();
+      }
 
 
 /*
@@ -424,6 +435,9 @@ void clearCart(){
     receipt.writeln("Total Items: ${getTotalItemCount()}");
     receipt.writeln("Total Price: ${_formatPrice(getTotalPrice())}");
 
+
+    receipt.writeln();
+    receipt.writeln("Delivering to: "+ deliveryAddress);
     return receipt.toString();
 
   }

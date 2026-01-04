@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mynew_project/components/my_button.dart';
 import 'package:mynew_project/components/my_textfield.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
+import '../services/auth/auth_service.dart';
 import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -20,16 +22,28 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
 
 
-  //create a login function
-  void login(){
-    /*
+  // login method
+  void login() async {
+    // get instance of auth service
+    final _authService = AuthService();
 
-    we will fill authentication here
-     */
+    // try sign in
+    try {
+      await _authService.signInWithEmailPassword(
+        emailController.text,
+        passwordController.text,
+      );
+    }
 
-    //navigate to the home page
-    
-    Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomePage(),),);
+    // display any errors
+    catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+        ), // AlertDialog
+      );
+    }
   }
   @override
   Widget build(BuildContext context) {

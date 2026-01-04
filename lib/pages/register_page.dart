@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mynew_project/components/my_textfield.dart';
 import 'package:mynew_project/components/my_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import '../services/auth/auth_service.dart';
 
 class RegisterPage extends StatefulWidget {
   final void Function()? onTap;
@@ -14,7 +17,38 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmpasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
+
+
+
+  // register method
+  void register() async {
+    // get auth service
+    final _authService = AuthService();
+
+    // check if passwords match -> create user
+    if (passwordController.text == confirmPasswordController.text) {
+      // try creating user
+      try {
+        await _authService.signUpWithEmailPassword(
+          emailController.text,
+          passwordController.text,
+        );
+      }
+
+      //display errors
+      catch (e){
+        showDialog(context: context, builder: (context)=>AlertDialog(title: Text(e.toString()),),);
+      }
+
+    }
+
+    else{
+      showDialog(context: context, builder: (context)=>AlertDialog(title: Text("Passwod dont match"),),);
+    }
+  }
+
+
 
 
   @override
@@ -65,7 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
               // Password TextField
               MyTextField(
-                controller: confirmpasswordController,
+                controller: confirmPasswordController,
                 hintText: "Confirm Password",
                 obscureText: true,
               ),
@@ -75,7 +109,7 @@ class _RegisterPageState extends State<RegisterPage> {
               // Sign in button
               MyButton(
                 text: "Sign Up",
-                onTap: () {},
+                onTap: register,
               ),
 
               const SizedBox(height: 10),
