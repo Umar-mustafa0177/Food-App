@@ -1,4 +1,3 @@
-// flutter pub add flutter_credit_card
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:mynew_project/components/my_button.dart';
@@ -20,43 +19,39 @@ class _PaymentPageState extends State<PaymentPage> {
   String cvvCode = '';
   bool isCvvFocused = false;
 
-  // user wants to pay
   void userTappedPay() {
     if (formKey.currentState!.validate()) {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
+          backgroundColor: Theme.of(context).colorScheme.surface,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           title: const Text("Confirm Payment"),
           content: SingleChildScrollView(
             child: ListBody(
               children: [
+                Text("Card Holder: $cardHolderName"),
+                const SizedBox(height: 5),
                 Text("Card Number: $cardNumber"),
-                Text("Expiry Date: $expiryDate"),
-                Text("Card Holder Name: $cardHolderName"),
-                Text("CVV: $cvvCode"),
               ],
             ),
           ),
           actions: [
-            // cancel button
             TextButton(
               onPressed: () => Navigator.pop(context),
               child: const Text("Cancel"),
             ),
-
-            // yes button
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) =>
-                    Deliveryprogresspage(),
+                    builder: (context) => const Deliveryprogresspage(),
                   ),
                 );
               },
-              child: const Text("Yes"),
+              child: const Text("Confirm"),
             ),
           ],
         ),
@@ -66,52 +61,81 @@ class _PaymentPageState extends State<PaymentPage> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: colorScheme.surface,
       appBar: AppBar(
+        title: const Text("C H E C K O U T"),
+        centerTitle: true,
         backgroundColor: Colors.transparent,
-        foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Checkout"),
+        elevation: 0,
       ),
-      body: Column(
-        children: [
-          // credit card preview
-          CreditCardWidget(
-            cardNumber: cardNumber,
-            expiryDate: expiryDate,
-            cardHolderName: cardHolderName,
-            cvvCode: cvvCode,
-            showBackView: isCvvFocused,
-            onCreditCardWidgetChange: (p0) {},
-          ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Credit Card Preview
+            CreditCardWidget(
+              cardNumber: cardNumber,
+              expiryDate: expiryDate,
+              cardHolderName: cardHolderName,
+              cvvCode: cvvCode,
+              showBackView: isCvvFocused,
+              obscureCardNumber: true,
+              obscureCardCvv: true,
+              isHolderNameVisible: true,
+              cardBgColor: colorScheme.primary,
+              onCreditCardWidgetChange: (p0) {},
+            ),
 
-          // credit card form
-          CreditCardForm(
-            formKey: formKey,
-            cardNumber: cardNumber,
-            expiryDate: expiryDate,
-            cardHolderName: cardHolderName,
-            cvvCode: cvvCode,
-            onCreditCardModelChange: (data) {
-              setState(() {
-                cardNumber = data.cardNumber;
-                expiryDate = data.expiryDate;
-                cardHolderName = data.cardHolderName;
-                cvvCode = data.cvvCode;
-                isCvvFocused = data.isCvvFocused;
-              });
-            },
-          ),
+            const SizedBox(height: 20),
 
-          const Spacer(),
+            // Credit Card Form wrapped in Theme for color customization
+            Theme(
+              data: Theme.of(context).copyWith(
+                primaryColor: colorScheme.primary,
+                textSelectionTheme: TextSelectionThemeData(
+                  cursorColor: colorScheme.primary, // cursor color
+                  selectionColor: colorScheme.primary.withOpacity(0.3),
+                  selectionHandleColor: colorScheme.primary,
+                ),
+                inputDecorationTheme: InputDecorationTheme(
+                  labelStyle: TextStyle(color: colorScheme.onSurface), // text labels
+                  hintStyle: TextStyle(color: colorScheme.onSurface.withOpacity(0.7)),
+                ),
+              ),
+              child: CreditCardForm(
+                formKey: formKey,
+                cardNumber: cardNumber,
+                expiryDate: expiryDate,
+                cardHolderName: cardHolderName,
+                cvvCode: cvvCode,
+                onCreditCardModelChange: (data) {
+                  setState(() {
+                    cardNumber = data.cardNumber;
+                    expiryDate = data.expiryDate;
+                    cardHolderName = data.cardHolderName;
+                    cvvCode = data.cvvCode;
+                    isCvvFocused = data.isCvvFocused;
+                  });
+                },
+              ),
+            ),
 
-          MyButton(
-            onTap: userTappedPay,
-            text: "Pay Now",
-          ),
 
-          const SizedBox(height: 25),
-        ],
+            const SizedBox(height: 80), // Space before button
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: MyButton(
+                onTap: userTappedPay,
+                text: "Pay Now",
+              ),
+            ),
+
+            const SizedBox(height: 25),
+          ],
+        ),
       ),
     );
   }

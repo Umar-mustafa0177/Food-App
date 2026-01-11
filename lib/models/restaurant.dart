@@ -15,12 +15,12 @@ class Restaurant extends ChangeNotifier{
       name: "Bazinga",
       description: "Spicy crispy chicken burger",
       imagePath: "lib/images/burgers/bazinga.png",
-      price: 5.99,
+      price: 499,
       category: FoodCategory.burgers,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Extra Cheese ", price: 99),
+        Addon(name: "Jalpenos", price: 149),
+        Addon(name: "Garlic Mayo Sauce", price: 199)
       ],
     ),
 
@@ -28,12 +28,12 @@ class Restaurant extends ChangeNotifier{
       name: "Big Ben",
       description: "Double patty special burger",
       imagePath: "lib/images/burgers/big ben.png",
-      price: 6.99,
+      price: 899,
       category: FoodCategory.burgers,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Extra Cheese ", price: 99),
+        Addon(name: "Jalpenos", price: 149),
+        Addon(name: "Garlic Mayo Sauce", price: 199)
       ],
     ),
 
@@ -41,12 +41,12 @@ class Restaurant extends ChangeNotifier{
       name: "Crunch",
       description: "Crunchy chicken fillet burger",
       imagePath: "lib/images/burgers/crunch.png",
-      price: 4.99,
+      price: 450,
       category: FoodCategory.burgers,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Extra Cheese ", price: 99),
+        Addon(name: "Jalpenos", price: 149),
+        Addon(name: "Garlic Mayo Sauce", price: 199)
       ],
     ),
 
@@ -54,12 +54,12 @@ class Restaurant extends ChangeNotifier{
       name: "Pattie",
       description: "Simple beef patty burger",
       imagePath: "lib/images/burgers/patie.png",
-      price: 3.99,
+      price: 699,
       category: FoodCategory.burgers,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Extra Cheese ", price: 99),
+        Addon(name: "Jalpenos", price: 149),
+        Addon(name: "Garlic Mayo Sauce", price: 199)
       ],
     ),
 
@@ -67,12 +67,12 @@ class Restaurant extends ChangeNotifier{
       name: "Zinger",
       description: "Classic zinger burger",
       imagePath: "lib/images/burgers/zinger.png",
-      price: 5.49,
+      price: 799,
       category: FoodCategory.burgers,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Extra Cheese ", price: 99),
+        Addon(name: "Jalpenos", price: 149),
+        Addon(name: "Garlic Mayo Sauce", price: 199)
       ],
     ),
 
@@ -81,12 +81,12 @@ class Restaurant extends ChangeNotifier{
       name: "Gulab Jamun",
       description: "Soft sweet gulab jamun",
       imagePath: "lib/images/deserts/gulab jamun.png",
-      price: 2.99,
+      price: 1200,
       category: FoodCategory.desserts,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Extra Sugar Syrup", price: 99),
+        Addon(name: "Khoya Crumble", price: 149),
+        Addon(name: "Dry Fruits Badam / Pista", price: 199)
       ],
     ),
 
@@ -94,12 +94,12 @@ class Restaurant extends ChangeNotifier{
       name: "Jalebi",
       description: "Crispy sweet jalebi",
       imagePath: "lib/images/deserts/jalebi.png",
-      price: 2.49,
+      price: 700,
       category: FoodCategory.desserts,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Rabri", price: 99),
+        Addon(name: "Extra Sugar Syrup", price: 149),
+        Addon(name: "Pista / Badam", price: 199)
       ],
     ),
 
@@ -107,12 +107,12 @@ class Restaurant extends ChangeNotifier{
       name: "Kheer",
       description: "Traditional rice kheer",
       imagePath: "lib/images/deserts/kheer.png",
-      price: 3.49,
+      price: 500,
       category: FoodCategory.desserts,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Badam / Pista / Kishmish", price: 99),
+        Addon(name: "Fresh Cream / Malai", price: 149),
+        Addon(name: "Elaichi Powder", price: 199)
       ],
     ),
 
@@ -120,12 +120,12 @@ class Restaurant extends ChangeNotifier{
       name: "Ras Malai",
       description: "Milk based soft ras malai",
       imagePath: "lib/images/deserts/pngtree-bread-rasmalai-is-the-tweaked-version-of-traditional-png-image_13182378.png",
-      price: 3.99,
+      price: 1399,
       category: FoodCategory.desserts,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Badam / Pista / Kishmish", price: 99),
+        Addon(name: "Fresh Cream / Malai", price: 149),
+        Addon(name: "Elaichi Powder", price: 199)
       ],
     ),
 
@@ -133,12 +133,12 @@ class Restaurant extends ChangeNotifier{
       name: "Sohn Halwa",
       description: "Famous multani sohn halwa",
       imagePath: "lib/images/deserts/sohn halwa.png",
-      price: 4.49,
+      price: 2500,
       category: FoodCategory.desserts,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Badam / Pista / Kishmish", price: 99),
+        Addon(name: "Fresh Cream / Malai", price: 149),
+        Addon(name: "Elaichi Powder", price: 199)
       ],
     ),
 
@@ -147,12 +147,12 @@ class Restaurant extends ChangeNotifier{
       name: "Lassi",
       description: "Sweet chilled lassi",
       imagePath: "lib/images/drinks/lassi.png",
-      price: 1.99,
+      price: 280,
       category: FoodCategory.drinks,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Extra Malai", price: 50),
+        Addon(name: "Dry fruits", price: 100),
+        Addon(name: "Rose syrup", price: 150)
       ],
     ),
 
@@ -160,12 +160,12 @@ class Restaurant extends ChangeNotifier{
       name: "Lemon Pani",
       description: "Refreshing lemon drink",
       imagePath: "lib/images/drinks/lemon pani.png",
-      price: 1.49,
+      price: 120,
       category: FoodCategory.drinks,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Mint", price: 50),
+        Addon(name: "Black Salt", price: 50),
+        Addon(name: "Soda", price: 100)
       ],
     ),
 
@@ -173,12 +173,12 @@ class Restaurant extends ChangeNotifier{
       name: "Mint Margarita",
       description: "Mint fresh margarita",
       imagePath: "lib/images/drinks/mint margarita.png",
-      price: 2.49,
+      price: 180,
       category: FoodCategory.drinks,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Mint", price: 50),
+        Addon(name: "Black Salt", price: 50),
+        Addon(name: "Soda", price: 100)
       ],
     ),
 
@@ -186,12 +186,12 @@ class Restaurant extends ChangeNotifier{
       name: "Rooh Afza",
       description: "Classic rooh afza drink",
       imagePath: "lib/images/drinks/rooh afza.png",
-      price: 1.99,
+      price: 120,
       category: FoodCategory.drinks,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Milk", price: 50),
+        Addon(name: "Ice cream scoop", price: 100),
+        Addon(name: "Basil Seeds", price: 50)
       ],
     ),
 
@@ -200,12 +200,12 @@ class Restaurant extends ChangeNotifier{
       name: "Macroni Salad",
       description: "Creamy macroni salad",
       imagePath: "lib/images/salads/macroni slad.png",
-      price: 2.99,
+      price: 399,
       category: FoodCategory.salads,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Grilled Chicken", price: 100),
+        Addon(name: "Nuts & Seeds", price: 150),
+        Addon(name: "Extra Sauce", price: 200)
       ],
     ),
 
@@ -213,12 +213,12 @@ class Restaurant extends ChangeNotifier{
       name: "Russian Salad",
       description: "Classic russian salad",
       imagePath: "lib/images/salads/russian salad.png",
-      price: 3.49,
+      price: 399,
       category: FoodCategory.salads,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Grilled Chicken", price: 100),
+        Addon(name: "Nuts & Seeds", price: 150),
+        Addon(name: "Extra Sauce", price: 200)
       ],
     ),
 
@@ -226,12 +226,12 @@ class Restaurant extends ChangeNotifier{
       name: "Vegetable Salad",
       description: "Fresh vegetable salad",
       imagePath: "lib/images/salads/salad 1.png",
-      price: 2.49,
+      price: 250,
       category: FoodCategory.salads,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Grilled Chicken", price: 100),
+        Addon(name: "Nuts & Seeds", price: 150),
+        Addon(name: "Extra Sauce", price: 200)
       ],
     ),
 
@@ -240,12 +240,12 @@ class Restaurant extends ChangeNotifier{
       name: "Achar",
       description: "Traditional desi achar",
       imagePath: "lib/images/sides/achar.png",
-      price: 0.99,
+      price: 200,
       category: FoodCategory.sides,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Extra Chilli", price: 100),
+        Addon(name: "Mango", price: 100),
+        Addon(name: "Garlic", price: 100)
       ],
     ),
 
@@ -253,12 +253,12 @@ class Restaurant extends ChangeNotifier{
       name: "Naan Roti",
       description: "Fresh naan roti",
       imagePath: "lib/images/sides/naan roti.png",
-      price: 1.49,
+      price: 50,
       category: FoodCategory.sides,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Butter", price: 50),
+        Addon(name: "Garlic", price: 50),
+        Addon(name: "Cheese Stuffing", price: 50)
       ],
     ),
 
@@ -266,12 +266,12 @@ class Restaurant extends ChangeNotifier{
       name: "Raita",
       description: "Cool yogurt raita",
       imagePath: "lib/images/sides/raita.png",
-      price: 0.99,
+      price: 80,
       category: FoodCategory.sides,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Cucumber", price: 50),
+        Addon(name: "Coriander", price: 50),
+        Addon(name: "Spicies", price: 50)
       ],
     ),
 
@@ -279,12 +279,12 @@ class Restaurant extends ChangeNotifier{
       name: "Shami Kabab",
       description: "Juicy shami kabab",
       imagePath: "lib/images/sides/shami kabab.png",
-      price: 2.99,
+      price: 100,
       category: FoodCategory.sides,
       availableAddons: [
-        Addon(name: "Extra Cheese", price: 0.99),
-        Addon(name: "Bacon", price: 1.99),
-        Addon(name: "Avacado", price: 2.99)
+        Addon(name: "Chicken", price: 50),
+        Addon(name: "Beaf", price: 50),
+        Addon(name: "Meat", price: 50)
       ],
     ),
   ];

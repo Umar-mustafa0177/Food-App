@@ -1,54 +1,96 @@
-# mynew_project
 
-A new Flutter project.
+# 🍔 Foodie - Advanced Food Ordering Application
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Foodie is a modern, high-performance food delivery application built with Flutter and Firebase. This project was developed as a **Mobile Application Development Semester Project**, evolving from a basic prototype into an advanced ordering system with real-time backend integration.
 
 
+## 🚀 Key Features
 
-//for firebase 
-1st run 
-npm install -g firebase-tools
-for this we have to install node js in our system
-
-2nd command
-firebase login
-
-
-3rd command
-flutter pub global activate flutterfire_cli
-
-add the given path to environement variables
-
-4th command
-flutterfire configure
+* **Advanced Splash Screen:** A clean, branded experience with a 4-second delay and smooth logo transitions.
+* **Firebase Authentication:** Secure user identity management including Login and Sign-Up (Email & Password).
+* **Smart Auth Gate:** Automatically detects user session state to redirect between Home and Login screens seamlessly.
+* **Password Recovery:** Integrated "Forgot Password" functionality that sends reset links via Firebase.
+* **Interactive Registration:** Features a bouncy success animation and confirmation dialog after account creation.
+* **Haptic Feedback:** Physical touch sensations (vibrations) on button interactions for a premium feel.
 
 
-select android and ios 
+## 🍱 Menu Categories
+The application is organized into several food categories with dedicated assets and logic:
 
-Platform  Firebase App Id
-android   1:378512711826:android:e9faf6b36beacd8efa864b
-ios       1:378512711826:ios:db1ea7f37ec42267fa864b
+* 🍔 **Burgers** - A wide variety of gourmet burger options.
+* 🍰 **Desserts** - Sweet treats, cakes, and pastries.
+* 🥤 **Drinks** - Refreshing beverages and juices.
+* 🥗 **Salads** - Healthy, fresh, and organic salad choices.
+* 🍟 **Sides** - Appetizers, fries, and snacks.
+
+---
+
+## 🛠️ Tech Stack & Dependencies
+
+This project utilizes the following advanced Flutter packages:
+
+| Package                 | Purpose                                                 |
+|:------------------------|:--------------------------------------------------------|
+| `firebase_auth`         | Secure user authentication and session management.      |
+| `cloud_firestore`       | Real-time NoSQL database for menu items and user data.  |
+| `avatar_glow`           | Beautiful glowing animations for the branding elements. |
+| `flutter_native_splash` | Native boot-screen management for Android and iOS.      |
+| `provider`              | Efficient state management across the application.      |
+| `flutter_credit_card`   | Professional UI for credit card entry and management.   |
 
 
-flutter pub add firebase_core
+## 📂 Project Directory Structure
 
-now create a new folder services in lib
-move auth folder to services 
+lib/
+├── components/       # Reusable UI elements (Buttons, Textfields, Drawers)
+├── images/           # High-quality assets (Burgers, Drinks, Splash_logo.png)
+├── pages/            # App screens (Login, Register, Splash, Home, Settings)
+├── services/         # Firebase Auth, Firestore Database logic, and Auth Gate
+└── themes/           # Custom Light and Dark mode styling
 
-after all firebaser email etc 
 
-now for tehe firestore databser 
-1st command
-flutter pub add cloud_firestore
+
+## 💻 Installation & Local Setup
+
+### 1. Prerequisites
+
+* [Flutter SDK](https://docs.flutter.dev/get-started/install) installed.
+* [Node.js](https://nodejs.org/) (required for Firebase CLI).
+* Firebase Tools installed (`npm install -g firebase-tools`).
+
+### 2. Clone the Repository
+
+```bash
+git clone [https://github.com/Umar-mustafa0177/Food-App.git](https://github.com/Umar-mustafa0177/Food-App.git)
+cd Food-App
+
+
+### 3. Install Dependencies
+
+```bash
+flutter pub get
+
+
+### 4. Firebase Configuration
+
+* Run `flutterfire configure` to link your local project with your Firebase Console.
+* Ensure the `google-services.json` (Android) and `GoogleService-Info.plist` (iOS) files are generated in the correct directories.
+
+### 5. Run the Project
+
+```bash
+flutter run
+
+
+
+## 📝 Recent Version Updates
+
+* **Refined Splash Logic:** Increased timer to 4s for better brand visibility.
+* **Enhanced Register Page:** Added success dialog and automatic redirection.
+* **Improved UI:** Optimized logo placement and removed unnecessary glow for a cleaner look.
+* **Project Organization:** Migrated auth logic to specialized service folders.
+
+---
+
+**Developed with ❤️ by [Umar Mustafa**](https://www.google.com/search?q=https://github.com/Umar-mustafa0177)
+

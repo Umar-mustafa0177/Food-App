@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:mynew_project/components/my_button.dart';
 import 'package:mynew_project/models/food.dart';
@@ -7,10 +8,7 @@ import 'package:mynew_project/models/restaurant.dart';
 class FoodPage extends StatefulWidget {
   final Food food;
 
-  const FoodPage({
-    super.key,
-    required this.food,
-  });
+  const FoodPage({super.key, required this.food});
 
   @override
   State<FoodPage> createState() => _FoodPageState();
@@ -22,20 +20,14 @@ class _FoodPageState extends State<FoodPage> {
   @override
   void initState() {
     super.initState();
-    // initialize selected addons to false
     for (Addon addon in widget.food.availableAddons) {
       selectedAddons[addon] = false;
     }
   }
 
-  // method to add to cart
   void addToCart(Food food, Map<Addon, bool> selectedAddons) {
-
-    //close the current page to go back
     Navigator.pop(context);
 
-
-    //format the selected addons
     List<Addon> currentlySelectedAddons = [];
     for (Addon addon in widget.food.availableAddons) {
       if (selectedAddons[addon] == true) {
@@ -43,134 +35,159 @@ class _FoodPageState extends State<FoodPage> {
       }
     }
 
-    //add to cart
-    context
-        .read<Restaurant>()
-        .addtoCart(food, currentlySelectedAddons);
+    context.read<Restaurant>().addtoCart(food, currentlySelectedAddons);
   }
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Stack(
       children: [
         Scaffold(
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                Image.asset(widget.food.imagePath),
-                Padding(
-                  padding: const EdgeInsets.all(25.0),
+          backgroundColor: colorScheme.surface,
+          body: Column(
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        widget.food.name,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                      ),
-                      Text(
-                        'PKR ${widget.food.price}',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color:
-                          Theme.of(context).colorScheme.primary,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      Text(widget.food.description),
-                      const SizedBox(height: 10),
-                      Divider(
-                        color: Theme.of(context)
-                            .colorScheme
-                            .secondary,
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        "Add-ons",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context)
-                              .colorScheme
-                              .inversePrimary,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius:
-                          BorderRadius.circular(8),
-                          border: Border.all(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .secondary,
+                      // Smooth Hero Image
+                      Hero(
+                        tag: widget.food.imagePath,
+                        child: ClipRRect(
+                          borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(30),
+                            bottomRight: Radius.circular(30),
+                          ),
+                          child: Image.asset(
+                            widget.food.imagePath,
+                            width: double.infinity,
+                            height: 350,
+                            fit: BoxFit.cover,
                           ),
                         ),
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          physics:
-                          const NeverScrollableScrollPhysics(),
-                          padding: EdgeInsets.zero,
-                          itemCount:
-                          widget.food.availableAddons.length,
-                          itemBuilder: (context, index) {
-                            Addon addon =
-                            widget.food.availableAddons[index];
+                      ),
 
-                            return CheckboxListTile(
-                              title: Text(addon.name),
-                              subtitle: Text(
-                                'PKR ${addon.price}',
-                                style: TextStyle(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .primary,
-                                ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              widget.food.name,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w900,
+                                fontSize: 28,
                               ),
-                              value: selectedAddons[addon],
-                              onChanged: (bool? value) {
-                                setState(() {
-                                  selectedAddons[addon] =
-                                  value!;
-                                });
-                              },
-                            );
-                          },
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              'PKR ${widget.food.price}',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 22,
+                                color: colorScheme.primary,
+                              ),
+                            ),
+                            const SizedBox(height: 15),
+                            Text(
+                              widget.food.description,
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: colorScheme.onSurfaceVariant,
+                                height: 1.6,
+                              ),
+                            ),
+                            const SizedBox(height: 25),
+                            Divider(color: colorScheme.outlineVariant),
+                            const SizedBox(height: 20),
+                            Text(
+                              "Add-ons",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 15),
+
+                            // Customize Section
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(color: colorScheme.outlineVariant),
+                              ),
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                padding: EdgeInsets.zero,
+                                itemCount: widget.food.availableAddons.length,
+                                itemBuilder: (context, index) {
+                                  Addon addon = widget.food.availableAddons[index];
+                                  return CheckboxListTile(
+                                    title: Text(addon.name),
+                                    subtitle: Text('PKR ${addon.price}', style: TextStyle(color: colorScheme.primary)),
+                                    activeColor: colorScheme.primary,
+                                    value: selectedAddons[addon],
+                                    onChanged: (bool? value) {
+                                      HapticFeedback.lightImpact();
+                                      setState(() {
+                                        selectedAddons[addon] = value!;
+                                      });
+                                    },
+                                  );
+                                },
+                              ),
+                            ),
+                            const SizedBox(height: 40),
+                          ],
                         ),
                       ),
                     ],
                   ),
                 ),
-                MyButton(
-                  onTap: () {
-                    addToCart(
-                        widget.food, selectedAddons);
-                  },
-                  text: "Add to Cart",
+              ),
+
+              // Sticky Bottom Button
+              Container(
+                padding: const EdgeInsets.all(25),
+                decoration: BoxDecoration(
+                  color: colorScheme.surface,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.05),
+                      blurRadius: 10,
+                      offset: const Offset(0, -5),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 25),
-              ],
-            ),
+                child: SafeArea(
+                  top: false,
+                  child: MyButton(
+                    onTap: () => addToCart(widget.food, selectedAddons),
+                    text: "Add to Cart",
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
+
+        // Back Button
         SafeArea(
-          child: Opacity(
-            opacity: 0.5,
-            child: Container(
-              margin: const EdgeInsets.only(left: 25),
-              decoration: BoxDecoration(
-                color: Theme.of(context)
-                    .colorScheme
-                    .secondary,
-                shape: BoxShape.circle,
-              ),
-              child: IconButton(
-                icon: const Icon(
-                    Icons.arrow_back_ios_new),
-                onPressed: () =>
-                    Navigator.pop(context),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 20, top: 10),
+            child: GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: colorScheme.surface.withOpacity(0.9),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(Icons.arrow_back_ios_new_rounded, color: colorScheme.onSurface, size: 20),
               ),
             ),
           ),

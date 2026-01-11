@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:mynew_project/pages/splash_page.dart';
 import 'package:mynew_project/services/auth/auth_gate.dart';
 import 'package:mynew_project/firebase_options.dart';
 import 'package:mynew_project/models/restaurant.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:  const AuthGate(),
+      home: const SplashPage(),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
